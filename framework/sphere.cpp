@@ -14,7 +14,7 @@ Sphere::Sphere(glm::vec3 cntr, float r):
     radius_ {r}
 {}
 
-Sphere::Sphere(glm::vec3 cntr, float r, std::string n, glm::vec3 c):
+Sphere::Sphere(glm::vec3 cntr, float r, std::string n, Color c):
     Shape(n, c),
     center_ {cntr},
     radius_ {r}

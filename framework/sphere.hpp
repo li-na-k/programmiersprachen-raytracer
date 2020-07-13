@@ -10,7 +10,7 @@ class Sphere : public Shape{
         //Konstruktoren
         Sphere();
         Sphere(glm::vec3 cntr, float r);
-        Sphere(glm::vec3 cntr, float r, std::string n, glm::vec3 c);
+        Sphere(glm::vec3 cntr, float r, std::string n, Color c);
         /* virtual */ float area() const override;
         /* virtual */ float volume() const override;
     private:

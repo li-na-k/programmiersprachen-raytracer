@@ -13,7 +13,7 @@ Box::Box(glm::vec3 min, glm::vec3 max):
     max_ {max}
 {}
 
-Box::Box(glm::vec3 min, glm::vec3 max, std::string n, glm::vec3 c):
+Box::Box(glm::vec3 min, glm::vec3 max, std::string n, Color c):
     Shape(n, c),
     min_ {min},
     max_ {max}
