@@ -2,11 +2,19 @@
 #include <math.h>
 
 Box::Box():
+    Shape(),
     min_ {0.0f, 0.0f, 0.0f},
     max_ {100.0f, 100.0f, 100.0f}
 {}
 
 Box::Box(glm::vec3 min, glm::vec3 max):
+    Shape(),
+    min_ {min},
+    max_ {max}
+{}
+
+Box::Box(glm::vec3 min, glm::vec3 max, std::string n, glm::vec3 c):
+    Shape(n, c),
     min_ {min},
     max_ {max}
 {}

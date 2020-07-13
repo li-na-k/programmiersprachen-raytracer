@@ -13,7 +13,8 @@ TEST_CASE("box und sphere initialisierung", "[Box, Sphere]"){
   //TODO: test konstruktor
   //REQUIRE(s1.center_.x == 0.0f);
 }
-
+ 
+//Task 5.1
 TEST_CASE("box area and volume", "[Box::area, Box::volume]"){
   Box b1{{1.0f, 2.0f, 3.0f},{9.0f, 6.0f, 7.0f}};
   REQUIRE(b1.area() == Approx(160.0f));

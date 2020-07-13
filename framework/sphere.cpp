@@ -1,14 +1,22 @@
 #include "sphere.hpp"
 #include <math.h>
 #include <glm/vec3.hpp>
+#include <string>
 
 Sphere::Sphere():
     center_ {0.0f, 0.0f, 0.0f},
     radius_ {100.0f}
 {}
 
-Sphere::Sphere(glm::vec3 c, float r):
-    center_ {c},
+Sphere::Sphere(glm::vec3 cntr, float r):
+    Shape(),
+    center_ {cntr},
+    radius_ {r}
+{}
+
+Sphere::Sphere(glm::vec3 cntr, float r, std::string n, glm::vec3 c):
+    Shape(n, c),
+    center_ {cntr},
     radius_ {r}
 {}
 
