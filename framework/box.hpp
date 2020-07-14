@@ -3,6 +3,7 @@
 
 #include <glm/vec3.hpp>
 #include "shape.hpp"
+#include <iostream>
 
 class Box : public Shape{
     public:
@@ -13,6 +14,8 @@ class Box : public Shape{
         //TODO: test that min < max ?
         /* virtual */ float area() const override;
         /* virtual */ float volume() const override;
+        std::ostream& print(std::ostream& os) const override;
+
     private:
         glm::vec3 min_;
         glm::vec3 max_;

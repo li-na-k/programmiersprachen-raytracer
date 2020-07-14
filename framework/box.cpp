@@ -1,5 +1,6 @@
 #include "box.hpp"
 #include <math.h>
+#include <iostream>
 
 Box::Box():
     Shape(),
@@ -35,4 +36,12 @@ float Box::volume() const{
     float b = max_.y - min_.y;
     float h = max_.z - min_.z;
     return l*b*h;
+}
+
+//override print
+std::ostream& Box::print(std::ostream& os) const {
+    Shape::print(os);
+    os << "Minimum: " << min_.x << ", " << min_.y << ", " << min_.z << std::endl;
+    os << "Maximum: " << max_.x << ", " << max_.y << ", " << max_.z << std::endl;
+    return os;
 }
