@@ -8,19 +8,23 @@ Sphere::Sphere():
     Shape(),
     center_ {0.0f, 0.0f, 0.0f},
     radius_ {100.0f}
-{}
+{std::cout << "Konstrukor Sphere aufgerufen \n";}
 
-Sphere::Sphere(glm::vec3 cntr, float r):
+Sphere::Sphere(glm::vec3 const& cntr, float const& r):
     Shape(),
     center_ {cntr},
     radius_ {r}
-{}
+{std::cout << "Konstrukor Sphere aufgerufen \n";}
 
-Sphere::Sphere(glm::vec3 cntr, float r, std::string n, Color c):
+Sphere::Sphere(glm::vec3 const& cntr, float const& r, std::string const& n, Color const& c):
     Shape(n, c),
     center_ {cntr},
     radius_ {r}
-{}
+{std::cout << "Konstrukor Sphere aufgerufen \n";}
+
+Sphere::~Sphere() {
+    std::cout << "Destruktor Sphere aufgerufen \n";
+}
 
 //surface area of sphere: 4*pi*r^2
 float Sphere::area() const{

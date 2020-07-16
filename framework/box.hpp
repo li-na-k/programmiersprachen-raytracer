@@ -9,8 +9,10 @@ class Box : public Shape{
     public:
         //Konstruktoren
         Box();
-        Box(glm::vec3 min, glm::vec3 max);
-        Box(glm::vec3 min, glm::vec3 max, std::string n, Color c);
+        Box(glm::vec3 const& min, glm::vec3 const& max);
+        Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& n, Color const& c);
+        //Destruktor
+        ~Box();
         //TODO: test that min < max ?
         /* virtual */ float area() const override;
         /* virtual */ float volume() const override;

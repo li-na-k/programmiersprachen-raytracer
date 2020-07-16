@@ -11,8 +11,10 @@ class Sphere : public Shape{
     public:
         //Konstruktoren
         Sphere();
-        Sphere(glm::vec3 cntr, float r);
-        Sphere(glm::vec3 cntr, float r, std::string n, Color c);
+        Sphere(glm::vec3 const& cntr, float const& r);
+        Sphere(glm::vec3 const& cntr, float const& r, std::string const& n, Color const& c);
+        //Destruktor
+        ~Sphere();
         /* virtual */ float area() const override;
         /* virtual */ float volume() const override;
         /* virtual */ std::ostream& print(std::ostream& os) const override;

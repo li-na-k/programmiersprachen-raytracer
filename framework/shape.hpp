@@ -11,7 +11,10 @@ class Shape{
     public:
     //Konstruktoren 
     Shape();
-    Shape(std::string n, Color c);
+    Shape(std::string const& n, Color const& c);
+
+    //Destruktor (virtuell)
+    virtual ~Shape();
 
     //pure virtual methods - not implemented
     virtual float area() const = 0;
