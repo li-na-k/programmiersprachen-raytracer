@@ -69,6 +69,37 @@ TEST_CASE("intersect_ray_sphere", "[intersect]") {
   REQUIRE(distance == Approx(4.0f));
 }
 
+//testing task 5.6 with different spheres
+TEST_CASE("interect sphere", "[intersect]") {
+  //Sphere 1 - no intersection done
+  Sphere sphere1{{6,1,1},2,"Sphere1",{1,1,1}};
+  Ray ray{{22,1,2},{2,0,0}};
+  HitPoint result = sphere1.intersect(ray,4);
+  REQUIRE(result.intersection_done == false);
+
+  //Sphere 2 - intersection done
+  Sphere sphere2{{0,0,0},2,"Sphere2",{1,1,1}};
+  Ray ray2{{5,0,0},{-7.0,0,0}};
+  HitPoint result2 = sphere2.intersect(ray,2);
+  //REQUIRE(result2.intersection_done == true);
+  //TODO!!
+}
+
+//task 5.8
+TEST_CASE("Konstruktor Destruktor Reihenfolge", "[Konstruktor, Destruktor]") {
+  std::cout<<"\n _____________start task 5.8______________________ \n";
+  Color red{255, 0, 0};
+  glm::vec3 position{0.0f, 0.0f, 0.0f};
+  //changed order of parameters to fit my conscructor
+  Sphere* s1 = new Sphere{position, 1.2f, "sphere0", red}; 
+  Shape* s2 = new Sphere{position, 1.2f, "sphere1", red};
+  s1->print(std::cout); 
+  s2->print(std::cout);
+  delete s1; 
+  delete s2;
+  std::cout<<"_____________end task 5.8______________________ \n";
+}
+
 int main(int argc, char *argv[])
 {
 

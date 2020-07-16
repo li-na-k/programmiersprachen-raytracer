@@ -12,16 +12,16 @@ Box::Box(glm::vec3 const& min, glm::vec3 const& max):
     Shape(),
     min_ {min},
     max_ {max}
-{std::cout << "Konstrukor Box aufgerufen \n";}
+{std::cout << "Konstrukor Box " << name_ << " aufgerufen \n";}
 
 Box::Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& n, Color const& c):
     Shape(n, c),
     min_ {min},
     max_ {max}
-{std::cout << "Konstrukor Box aufgerufen \n";}
+{std::cout << "Konstrukor Box " << name_ << " aufgerufen \n";}
 
 Box::~Box() {
-    std::cout << "Destruktor Box aufgerufen \n";
+    std::cout << "Destruktor Box " << name_ << " aufgerufen \n";
 }
 
 //3d box area: 6 * s^2
