@@ -10,14 +10,11 @@
 TEST_CASE("box und sphere initialisierung", "[Box, Sphere]"){
   Sphere s1;
   Sphere s2 {{1.0f,2.0f,3.0f},5.0f};
-  //TODO: test konstruktor
   Box b1;
   Box b2{{0.0f, 0.0f, 0.0f},{3.0f, 2.0f, 4.0f}};
-  //TODO: test konstruktor
-  //REQUIRE(s1.center_.x == 0.0f);
 }
  
-//Task 5.1
+//Task 5.1 
 TEST_CASE("box area and volume", "[Box::area, Box::volume]"){
   Box b1{{1.0f, 2.0f, 3.0f},{9.0f, 6.0f, 7.0f}};
   REQUIRE(b1.area() == Approx(160.0f));
@@ -78,11 +75,38 @@ TEST_CASE("interect sphere", "[intersect]") {
   REQUIRE(result.intersection_done == false);
 
   //Sphere 2 - intersection done
-  Sphere sphere2{{0,0,0},2,"Sphere2",{1,1,1}};
-  Ray ray2{{5,0,0},{-7.0,0,0}};
-  HitPoint result2 = sphere2.intersect(ray,2);
-  //REQUIRE(result2.intersection_done == true);
-  //TODO!!
+  Sphere sphere2{{0,0,10},2.0f,"Sphere2",{1,1,1}};
+  Ray ray2{{0,0,0},{0,0,1}};
+  HitPoint result2 = sphere2.intersect(ray2,2);
+  REQUIRE(result2.intersection_done == true);
+  REQUIRE(result2.t == 8.0f);
+  REQUIRE(result2.name == "Sphere2");
+  REQUIRE(result2.color.r == 1.0f);
+  REQUIRE(result2.color.g == 1.0f);
+  REQUIRE(result2.color.b == 1.0f);
+  REQUIRE(result2.intersection_point.x == 0.0f);
+  REQUIRE(result2.intersection_point.y == 0.0f);
+  REQUIRE(result2.intersection_point.z == 8.0f);
+  REQUIRE(result2.direction.x == 0.0f);
+  REQUIRE(result2.direction.y == 0.0f);
+  REQUIRE(result2.direction.z == 1.0f);
+
+  //Sphere 3 - intersection done
+  Sphere sphere3{{0,0,0},10.0f,"Sphere3",{5,5,2}};
+  Ray ray3{{1,1,1},{0,0,-4.0}};
+  HitPoint result3 = sphere3.intersect(ray3,10);
+  REQUIRE(result3.intersection_done == true);
+  REQUIRE(result3.t == Approx(10.8995f));
+  REQUIRE(result3.name == "Sphere3");
+  REQUIRE(result3.color.r == 5.0f);
+  REQUIRE(result3.color.g == 5.0f);
+  REQUIRE(result3.color.b == 2.0f);
+  REQUIRE(result3.intersection_point.x == 1.0f);
+  REQUIRE(result3.intersection_point.y == 1.0f);
+  REQUIRE(result3.intersection_point.z == Approx(-42.59798f));
+  REQUIRE(result3.direction.x == 0.0f);
+  REQUIRE(result3.direction.y == 0.0f);
+  REQUIRE(result3.direction.z == -4.0f);
 }
 
 //task 5.8
@@ -96,7 +120,7 @@ TEST_CASE("Konstruktor Destruktor Reihenfolge", "[Konstruktor, Destruktor]") {
   s1->print(std::cout); 
   s2->print(std::cout);
   delete s1; 
-  delete s2;
+  delete s2; //this would not work if destruktor is non-virtual!
   std::cout<<"_____________end task 5.8______________________ \n";
 }
 
